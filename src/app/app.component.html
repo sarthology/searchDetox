@@ -6,17 +6,24 @@
     </div>
     <div class="col-12 justify-content-center">
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"  [(ngModel)]="choosenPersonality" value="singer">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" [(ngModel)]="choosenPersonality"
+          value="singer">
         <label class="form-check-label" for="inlineRadio1">Singer</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"  [(ngModel)]="choosenPersonality" value="programmer">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" [(ngModel)]="choosenPersonality"
+          value="programmer">
         <label class="form-check-label" for="inlineRadio2">Programmer</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" [(ngModel)]="choosenPersonality" value="traveller">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" [(ngModel)]="choosenPersonality"
+          value="traveller">
         <label class="form-check-label" for="inlineRadio2">Traveller</label>
       </div>
+    </div>
+    <div class="col-12">
+      <input type="range" min="1" max="60" [(ngModel)]="timeInterval" value="1">
+      {{timeInterval + " mins"}}
     </div>
     <div class="col-12">
       <button (click)="destroyGoogle()" class="btn btn-primary">RUN IT</button>

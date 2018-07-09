@@ -13,7 +13,7 @@ export class AppComponent {
   currentKeywordIndex:number = 0;
   timer;
   choosenPersonality;
-
+  timeInterval:number=1;
 
   constructor(private http:HttpClient){
     this.http.get('assets/data.json').subscribe(res=>{
@@ -26,7 +26,7 @@ export class AppComponent {
     this.timer = setInterval(()=>{
       //Open window with new keyword
       this.openWindow();
-    }, 5000);
+    }, this.timeInterval*60000);
   }
   
   //Open new tab with keywords
