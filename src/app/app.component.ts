@@ -14,7 +14,11 @@ export class AppComponent {
   timer;
   choosenPersonality;
   timeInterval:number=1;
-
+  model = {
+    left: true,
+    middle: false,
+    right: false
+  };
   constructor(private http:HttpClient){
     this.http.get('assets/data.json').subscribe(res=>{
       this.data = res; 

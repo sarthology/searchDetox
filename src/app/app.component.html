@@ -1,29 +1,55 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1>Search Detox</h1>
-      <img src="assets/img/privacy.png" alt="">
+      <img src="assets/img/meditator-text.png" class="col-12" alt="">
     </div>
-    <div class="col-12 justify-content-center">
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" [(ngModel)]="choosenPersonality"
-          value="singer">
-        <label class="form-check-label" for="inlineRadio1">Singer</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" [(ngModel)]="choosenPersonality"
-          value="programmer">
-        <label class="form-check-label" for="inlineRadio2">Programmer</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" [(ngModel)]="choosenPersonality"
-          value="traveller">
-        <label class="form-check-label" for="inlineRadio2">Traveller</label>
+
+    <div class="col-12 character-row">
+      <div class="row">
+        <div class="col-2">
+          <label class="character-label">Character Switch:</label>
+        </div>
+        <div class="col-10">
+          <div  class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="model">
+            <label class="btn-primary character-type" ngbButtonLabel>
+              <input type="radio" [value]="1" ngbButton> Singer
+            </label>
+            <label class="btn-primary character-type" ngbButtonLabel>
+              <input ngbButton type="radio" value="programmer"> Programmer
+            </label>
+            <label class="btn-primary character-type" ngbButtonLabel>
+              <input ngbButton type="radio" value="scientist"> Scientist
+            </label>
+            <label class="btn-primary character-type" ngbButtonLabel>
+              <input ngbButton type="radio" value="marketer"> Marketer
+            </label>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-12">
-      <input type="range" min="1" max="60" [(ngModel)]="timeInterval" value="1">
-      {{timeInterval + " mins"}}
+
+    <div class="col-12 timer-row">
+      <div class="row">
+        <div class="col-5">
+          <div class="form-group row">
+            <label for="staticEmail" class="col-4 col-form-label time-format-label">Time format:</label>
+            <div class="col-8">
+              <select class="form-control time-format " id="timeType">
+                <option>Seconds</option>
+                <option>Minutes</option>
+                <option>Hours</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-7">
+          <div class="form-group row">
+            <label for="staticEmail" class="col-3 col-form-label time-format-label">Detox Time:</label>
+            <input type="range" class="col-7 col-form-label timer-range" min="1" max="60" [(ngModel)]="timeInterval" value="1"> 
+            <span class="col-2 time-set">{{timeInterval + " mins"}}</span>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col-12">
       <button (click)="destroyGoogle()" class="btn btn-primary">RUN IT</button>
