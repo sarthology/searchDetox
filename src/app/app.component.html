@@ -10,18 +10,9 @@
           <label class="character-label">Character Switch:</label>
         </div>
         <div class="col-10">
-          <div  class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="model">
+          <div class="btn-group btn-group-toggle" *ngFor="let item of data | async" ngbRadioGroup name="radioBasic" [(ngModel)]="model">
             <label class="btn-primary character-type" ngbButtonLabel>
-              <input type="radio" [value]="1" ngbButton> Singer
-            </label>
-            <label class="btn-primary character-type" ngbButtonLabel>
-              <input ngbButton type="radio" value="programmer"> Programmer
-            </label>
-            <label class="btn-primary character-type" ngbButtonLabel>
-              <input ngbButton type="radio" value="scientist"> Scientist
-            </label>
-            <label class="btn-primary character-type" ngbButtonLabel>
-              <input ngbButton type="radio" value="marketer"> Marketer
+              <input type="radio" [value]="item.name" ngbButton> {{item.name}}
             </label>
           </div>
         </div>
@@ -52,7 +43,13 @@
       </div>
     </div>
     <div class="col-12">
-      <button (click)="destroyGoogle()" class="btn btn-primary">RUN IT</button>
+      <div class="row find-row">
+        <div class="col-5">
+        </div>
+        <button (click)="destroyGoogle()" class="btn btn-primary destroyGoogle col-2 ">RUN IT</button>
+        <div class="col-5">
+        </div>
+      </div>
     </div>
   </div>
 </div>

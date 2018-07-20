@@ -20,9 +20,7 @@ export class AppComponent {
     right: false
   };
   constructor(private http:HttpClient){
-    this.http.get('assets/data.json').subscribe(res=>{
-      this.data = res; 
-    })
+    this.data = this.http.get('assets/data.json')
   }
 
   destroyGoogle(){

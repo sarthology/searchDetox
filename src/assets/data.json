@@ -1,24 +1,42 @@
-{
-    "personalities":{
-        "singer":[
-            "How to sing",
-            "Where to buy guitar",
-            "Best Guitar classes near me",
-            "Guitar chords for tere bin"
-        ],
-        "programmer":[
-            "How to start coding?",
-            "How to learn Html?",
-            "How to leanr css?",
-            "How to learn Javascript?",
-            "What is stackoverflow?"
-        ],
-        "traveller":[
-            "best time to itlay",
-            "best time to go england",
-            "best way to go bihar",
-            "Best books for travellers",
-            "hiking material to buy online"
-        ]
-    }
-}
+[{
+    "name": "singer",
+    "data": [
+      "How to sing",
+      "Where to buy guitar",
+      "Best Guitar classes near me",
+      "Guitar chords for tere bin"
+    ]
+  }
+
+  ,
+  {
+    "name": "programmer",
+    "data": [
+      "How to start coding?",
+      "How to learn Html?",
+      "How to leanr css?",
+      "How to learn Javascript?",
+      "What is stackoverflow?"
+    ]
+  },
+  {
+    "name": "traveller",
+    "data": [
+      "best time to go england",
+      "best way to go bihar",
+      "Best books for travellers",
+      "best time to itlay",
+      "hiking material to buy online"
+    ]
+  },
+  {
+    "name": "scientist",
+    "data": [
+      "What is a proton",
+      "What is an atom",
+      "what is blackhole",
+      "How hard is doing PHD in Physics?",
+      "How newton died?"
+    ]
+  }
+]
