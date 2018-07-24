@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <img src="assets/img/meditator-text.png" class="col-12" alt="">
+    </div>
+
+    <div class="col-12 character-row">
+      <div class="row">
+        <div class="col-2">
+          <label class="character-label">Character Switch:</label>
+        </div>
+        <div class="col-10">
+          <div class="btn-group btn-group-toggle" *ngFor="let item of data" ngbRadioGroup name="radioBasic" [(ngModel)]="currentPersonality">
+            <label class="btn-primary character-type" ngbButtonLabel>
+              <input type="radio" [value]="item.name" ngbButton> {{item.name}}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 timer-row">
+      <div class="row">
+        <div class="col-5">
+          <div class="form-group row">
+            <label for="staticEmail" class="col-4 col-form-label time-format-label">Time format:</label>
+            <div class="col-8">
+              <select class="form-control time-format " id="timeType">
+                <option>Seconds</option>
+                <option>Minutes</option>
+                <option>Hours</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-7">
+          <div class="form-group row">
+            <label for="staticEmail" class="col-3 col-form-label time-format-label">Detox Time:</label>
+            <input type="range" class="col-7 col-form-label timer-range" min="1" max="60" [(ngModel)]="timeInterval" value="1">
+            <span class="col-2 time-set">{{timeInterval + " mins"}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="row find-row">
+        <div class="col-5">
+        </div>
+        <button (click)="destroyGoogle()" class="btn btn-primary destroyGoogle col-2 ">RUN IT</button>
+        <div class="col-5">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
