@@ -10,9 +10,9 @@
           <label class="character-label">Character Switch:</label>
         </div>
         <div class="col-10">
-          <div class="btn-group btn-group-toggle" *ngFor="let item of data" ngbRadioGroup name="radioBasic" [(ngModel)]="currentPersonality">
+          <div class="btn-group btn-group-toggle" *ngFor="let personality of personalities | async" ngbRadioGroup name="radioBasic" [(ngModel)]="searchProperties.selectedPersonality">
             <label class="btn-primary character-type" ngbButtonLabel>
-              <input type="radio" [value]="item.name" ngbButton> {{item.name}}
+              <input type="radio" [value]="personality.name" ngbButton> {{personality.name}}
             </label>
           </div>
         </div>
@@ -25,10 +25,10 @@
           <div class="form-group row">
             <label for="staticEmail" class="col-4 col-form-label time-format-label">Time format:</label>
             <div class="col-8">
-              <select class="form-control time-format " id="timeType">
-                <option>Seconds</option>
-                <option>Minutes</option>
-                <option>Hours</option>
+              <select class="form-control time-format " id="timeType" [(ngModel)]="searchProperties.selectedTimeFormat">
+                <option value="secs">Seconds</option>
+                <option value="mins">Minutes</option>
+                <option value="hrs">Hours</option>
               </select>
             </div>
           </div>
@@ -36,8 +36,8 @@
         <div class="col-7">
           <div class="form-group row">
             <label for="staticEmail" class="col-3 col-form-label time-format-label">Detox Time:</label>
-            <input type="range" class="col-7 col-form-label timer-range" min="1" max="60" [(ngModel)]="timeInterval" value="1">
-            <span class="col-2 time-set">{{timeInterval + " mins"}}</span>
+            <input type="range" class="col-7 col-form-label timer-range" min="1" max="60" [(ngModel)]="searchProperties.selectedTimeInterval" value="1">
+            <span class="col-2 time-set">{{searchProperties.selectedTimeInterval + " "+ searchProperties.selectedTimeFormat }}</span>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@
       <div class="row find-row">
         <div class="col-5">
         </div>
-        <button (click)="destroyGoogle()" class="btn btn-primary destroyGoogle col-2 ">RUN IT</button>
+        <button routerLink="/payload" (click)="uploadPayload()" class="btn btn-primary destroyGoogle col-2 ">RUN IT</button>
         <div class="col-5">
         </div>
       </div>

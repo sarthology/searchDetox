@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from '../../../node_modules/rxjs';
 
 
 @Component({
@@ -9,38 +10,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent {
 
-  data;
-  currentKeywords;
-  currentKeywordIndex:number = 0;
-  timer;
-  currentPersonality;
-  timeInterval:number=1;
+  public personalities:Observable<object>;
+  public searchProperties:Object = {
+    selectedPersonality:"singer",
+    selectedTimeFormat:"mins",
+    selectedTimeInterval:1
+  }
 
   constructor(private http:HttpClient){
-   this.http.get('assets/data.json').subscribe(data=>{
-      this.data = data;
-    })
+   this.personalities = this.http.get('assets/data.json');
   }
 
-  destroyGoogle(){
-    this.currentKeywords = this.data.find( personality => personality.name === this.currentPersonality ).data; 
-    console.log(this.currentKeywords);
-    this.timer = setInterval(()=>{
-      //Open window with new keyword
-      this.openWindow();
-    }, this.timeInterval*60000);
+  uploadPayload(){
+    // window.open("/payload","Let the revolution begin","resizable,scrollbars");
+    window.localStorage.setItem("searchProperties",JSON.stringify(this.searchProperties));
+    
   }
-  
-  //Open new tab with keywords
-  openWindow(){
-    if(this.currentKeywords[this.currentKeywordIndex]){
-      window.open("http://google.com/search?q="+this.currentKeywords[this.currentKeywordIndex])
-      this.currentKeywordIndex += 1;
-    }
-    else{
-      this.currentKeywordIndex = 0;
-      clearInterval(this.timer);
-    }
-  }
-
 }

@@ -7,12 +7,14 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { PayloadComponent } from './payload/payload.component';
 
 // this is sparta
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PayloadComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,7 @@ import { HomeComponent } from './home/home.component';
     NgbModule.forRoot(),
     RouterModule.forRoot([
       { path: "home", component: HomeComponent},
+      { path: "payload", component: PayloadComponent},
       {path: '',redirectTo: "/home",pathMatch: 'full'}
     ])
   ],
