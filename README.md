@@ -3,6 +3,7 @@
 
 A small experiment to detox your search result on various platform and make them think that you are somebody else 😜
 
+
 ## Why this exist? 🤔
 I'm not against Google, I'm just in favor of privacy. Most people don't take it seriously, including developers. Big gaints create your personality profiles on the basis of your search and use that to manipulate you.
 
@@ -48,3 +49,4 @@ and that's it your app will be running `localhost:4300`
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
+
